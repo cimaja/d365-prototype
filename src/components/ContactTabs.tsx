@@ -1,9 +1,8 @@
-import { makeStyles, Button, TabList, Tab, ToggleButton } from '@fluentui/react-components';
+import { makeStyles, TabList, Tab, ToggleButton } from '@fluentui/react-components';
 import { 
   FormSparkleRegular,
   FormSparkleFilled,
-  ChevronDownRegular,
-  SparkleRegular
+  ChevronDownRegular
 } from '@fluentui/react-icons';
 
 const useStyles = makeStyles({

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { makeStyles, shorthands, Button, tokens, TabList, Tab } from '@fluentui/react-components';
+import { makeStyles, shorthands, Button, TabList, Tab } from '@fluentui/react-components';
 import { 
   DocumentOnePageSparkleRegular,
   ChevronDownRegular,
