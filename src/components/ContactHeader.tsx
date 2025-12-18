@@ -114,9 +114,15 @@ export const ContactHeader: React.FC<ContactHeaderProps> = ({ minimized = false,
             color="colorful"
             style={{ width: '28px', height: '28px', fontSize: '12px' }}
           />
-          <h1 className={typography.pageTitle} style={{ fontSize: '14px', lineHeight: '20px', margin: 0 }}>
-            Patrick Sands (sample)
-          </h1>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+            <h1 className={typography.pageTitle} style={{ fontSize: '14px', lineHeight: '20px', margin: 0 }}>
+              Patrick Sands (sample)
+            </h1>
+            <span style={{ fontSize: '14px', color: 'rgb(96, 94, 92)' }}>•</span>
+            <Badge appearance="tint" color="informative">
+              {isSaved ? 'Saved' : 'Unsaved'}
+            </Badge>
+          </div>
         </div>
         <div style={{ flex: 1, display: 'flex', justifyContent: 'flex-end' }}>
           {children}
