@@ -1,4 +1,4 @@
-import { makeStyles, shorthands } from '@fluentui/react-components';
+import { makeStyles, shorthands, Badge } from '@fluentui/react-components';
 import { Avatar } from '@fluentui/react-avatar';
 import { 
   ChevronDownRegular
@@ -8,6 +8,7 @@ import { useTypographyStyles } from '../styles/typography';
 interface ContactHeaderProps {
   minimized?: boolean;
   children?: React.ReactNode;
+  isSaved?: boolean;
 }
 
 const useStyles = makeStyles({
@@ -97,7 +98,7 @@ const useStyles = makeStyles({
   // ownerLabel removed - using typography.metadataLabel
 });
 
-export const ContactHeader: React.FC<ContactHeaderProps> = ({ minimized = false, children }) => {
+export const ContactHeader: React.FC<ContactHeaderProps> = ({ minimized = false, children, isSaved = true }) => {
   const styles = useStyles();
   const typography = useTypographyStyles();
 
@@ -110,6 +111,7 @@ export const ContactHeader: React.FC<ContactHeaderProps> = ({ minimized = false,
             name="Patrick Sands" 
             initials="PS"
             size={28}
+            color="colorful"
             style={{ width: '28px', height: '28px', fontSize: '12px' }}
           />
           <h1 className={typography.pageTitle} style={{ fontSize: '14px', lineHeight: '20px', margin: 0 }}>
@@ -131,6 +133,7 @@ export const ContactHeader: React.FC<ContactHeaderProps> = ({ minimized = false,
           name="Patrick Sands" 
           initials="PS"
           size={48}
+          color="colorful"
         />
 
         <div className={styles.titleSection}>
@@ -142,7 +145,9 @@ export const ContactHeader: React.FC<ContactHeaderProps> = ({ minimized = false,
           <div className={styles.titleRow}>
             <span className={typography.metadataLabel}>Contact</span>
             <span className={typography.metadataLabel}>•</span>
-            <span className={typography.metadataLabel}>Saved</span>
+            <Badge appearance="tint" color="informative">
+              {isSaved ? 'Saved' : 'Unsaved'}
+            </Badge>
           </div>
         </div>
       </div>
@@ -169,6 +174,8 @@ export const ContactHeader: React.FC<ContactHeaderProps> = ({ minimized = false,
             name="user01 aurora" 
             initials="UA"
             size={32}
+            color="colorful"
+            badge={{ status: "available" }}
           />
           <div className={styles.ownerInfo}>
             <div className={typography.ownerLink}>user01 aurora</div>

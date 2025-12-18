@@ -57,11 +57,6 @@ export const ContactTabs: React.FC<ContactTabsProps> = ({ onFormAssistToggle, is
       
       {!minimized && (
         <div style={{ display: 'flex', gap: '8px' }}>
-          <Button 
-            icon={<SparkleRegular />}
-          >
-            Summary
-          </Button>
           <ToggleButton 
             icon={isFormAssistVisible ? <FormSparkleFilled /> : <FormSparkleRegular />}
             onClick={onFormAssistToggle}
