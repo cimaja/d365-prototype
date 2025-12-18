@@ -7,6 +7,7 @@ import { GeneralInformation } from './GeneralInformation.tsx';
 import { Timeline } from './Timeline.tsx';
 import { RelatedSection } from './RelatedSection.tsx';
 import { FormAssistPanel } from './FormAssistPanel.tsx';
+import { ActivitySummary } from './ActivitySummary.tsx';
 
 const useStyles = makeStyles({
   main: {
@@ -147,8 +148,8 @@ export const MainContent: React.FC = () => {
               />
             </ContactHeader>
           ) : undefined}
-        />
-      </div>
+        />      </div>
+      <ActivitySummary contactName="Patrick Sands (sample)" />
       <div className={styles.headerCard}>
         <ContactHeader minimized={false}>
         </ContactHeader>

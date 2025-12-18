@@ -150,7 +150,7 @@ export const ContactHeader: React.FC<ContactHeaderProps> = ({ minimized = false,
       <div className={styles.rightSection}>
         <div className={styles.infoGroup}>
           <div className={styles.infoItem}>
-            <span className={typography.metadataValue}>Owner</span>
+            <span className={typography.metadataValue}>Sales</span>
             <span className={typography.metadataLabel}>Job Title</span>
           </div>
           <div className={styles.infoItem}>
