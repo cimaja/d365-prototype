@@ -1,4 +1,5 @@
-import { makeStyles, shorthands, Button, Menu, MenuTrigger, MenuPopover, MenuList, MenuItem, Avatar, tokens } from '@fluentui/react-components';
+import { makeStyles, shorthands, Button, Menu, MenuTrigger, MenuPopover, MenuList, MenuItem, tokens } from '@fluentui/react-components';
+import { Avatar } from '@fluentui/react-avatar';
 import { 
   AppsRegular, 
   SearchRegular, 
@@ -18,7 +19,6 @@ const useStyles = makeStyles({
     backgroundColor: 'rgb(250, 250, 250)',
     ...shorthands.padding('0', '8px'),
     ...shorthands.gap('8px'),
-    boxShadow: '0 1.6px 3.6px 0 rgba(0,0,0,.132), 0 0.3px 0.9px 0 rgba(0,0,0,.108)',
     zIndex: 1000,
   },
   appLauncher: {

@@ -216,7 +216,7 @@ export const GeneralInformation: React.FC = () => {
           </div>
           <div className={styles.inputContainer}>
             <Combobox 
-              className={`${styles.input} ${styles.combobox}`}
+              className={styles.combobox}
               defaultValue="Any"
               placeholder="---"
               appearance="filled-lighter"

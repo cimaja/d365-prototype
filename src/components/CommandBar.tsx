@@ -20,6 +20,10 @@ import {
   DataBarVerticalRegular
 } from '@fluentui/react-icons';
 
+interface CommandBarProps {
+  minimizedHeader?: React.ReactNode;
+}
+
 const useStyles = makeStyles({
   commandBar: {
     display: 'flex',
@@ -99,7 +103,7 @@ const useStyles = makeStyles({
   },
 });
 
-export const CommandBar: React.FC = () => {
+export const CommandBar: React.FC<CommandBarProps> = ({ minimizedHeader }) => {
   const styles = useStyles();
   const commandBarRef = React.useRef<HTMLDivElement>(null);
   const [visibleButtons, setVisibleButtons] = React.useState(10); // Start with more buttons visible
@@ -163,7 +167,12 @@ export const CommandBar: React.FC = () => {
   }, []);
 
   return (
-    <div className={styles.commandBar} ref={commandBarRef}>
+    <div style={{ 
+      display: 'flex', 
+      flexDirection: 'column',
+      transition: 'all 0.2s ease-in-out',
+    }}>
+      <div className={styles.commandBar} ref={commandBarRef}>
       <div className={styles.leftSection} data-section="left">
         <Button
           appearance="subtle"
@@ -249,6 +258,15 @@ export const CommandBar: React.FC = () => {
           <ChevronDownRegular fontSize={16} />
         </Button>
       </div>
+    </div>
+      {minimizedHeader && (
+        <div style={{
+          borderTop: '1px solid rgb(225, 223, 221)',
+          transition: 'all 0.2s ease-in-out',
+        }}>
+          {minimizedHeader}
+        </div>
+      )}
     </div>
   );
 };

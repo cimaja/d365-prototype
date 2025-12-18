@@ -43,9 +43,18 @@ const useStyles = makeStyles({
     },
   },
   tabSelected: {
-    color: tokens.colorBrandForeground1,
+    minWidth: 'auto',
+    height: '32px',
+    ...shorthands.padding('0', '0'),
+    ...shorthands.borderRadius('0'),
+    fontSize: '13px',
     fontWeight: 600,
+    color: tokens.colorBrandForeground1,
     ...shorthands.borderBottom('2px', 'solid', tokens.colorBrandForeground1),
+    marginBottom: '-1px',
+    ':hover': {
+      color: tokens.colorBrandForeground1,
+    },
   },
   contentHeader: {
     display: 'flex',
@@ -131,7 +140,7 @@ export const RelatedSection: React.FC = () => {
       <div className={styles.tabs}>
         <Button 
           appearance="transparent"
-          className={`${styles.tab} ${styles.tabSelected}`}
+          className={styles.tabSelected}
         >
           Recent Opportunities
         </Button>

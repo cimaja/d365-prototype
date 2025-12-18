@@ -38,14 +38,15 @@ const useStyles = makeStyles({
 interface ContactTabsProps {
   onFormAssistToggle: () => void;
   isFormAssistVisible: boolean;
+  minimized?: boolean;
 }
 
-export const ContactTabs: React.FC<ContactTabsProps> = ({ onFormAssistToggle, isFormAssistVisible }) => {
+export const ContactTabs: React.FC<ContactTabsProps> = ({ onFormAssistToggle, isFormAssistVisible, minimized = false }) => {
   const styles = useStyles();
 
   return (
-    <div className={styles.tabsContainer}>
-      <TabList defaultSelectedValue="summary" className={styles.tabList}>
+    <div className={styles.tabsContainer} style={minimized ? { height: '40px' } : {}}>
+      <TabList defaultSelectedValue="summary" className={styles.tabList} style={minimized ? { height: '40px' } : {}}>
         <Tab value="summary">Summary</Tab>
         <Tab value="details">Details</Tab>
         <Tab value="related">
@@ -54,21 +55,23 @@ export const ContactTabs: React.FC<ContactTabsProps> = ({ onFormAssistToggle, is
         </Tab>
       </TabList>
       
-      <div style={{ display: 'flex', gap: '8px' }}>
-        <Button 
-          icon={<SparkleRegular />}
-        >
-          Summary
-        </Button>
-        <ToggleButton 
-          icon={isFormAssistVisible ? <FormSparkleFilled /> : <FormSparkleRegular />}
-          onClick={onFormAssistToggle}
-          checked={isFormAssistVisible}
-          className={styles.toggleButton}
-        >
-          Form assist
-        </ToggleButton>
-      </div>
+      {!minimized && (
+        <div style={{ display: 'flex', gap: '8px' }}>
+          <Button 
+            icon={<SparkleRegular />}
+          >
+            Summary
+          </Button>
+          <ToggleButton 
+            icon={isFormAssistVisible ? <FormSparkleFilled /> : <FormSparkleRegular />}
+            onClick={onFormAssistToggle}
+            checked={isFormAssistVisible}
+            className={styles.toggleButton}
+          >
+            Form assist
+          </ToggleButton>
+        </div>
+      )}
     </div>
   );
 };

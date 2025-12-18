@@ -1,8 +1,14 @@
-import { makeStyles, shorthands, Avatar } from '@fluentui/react-components';
+import { makeStyles, shorthands } from '@fluentui/react-components';
+import { Avatar } from '@fluentui/react-avatar';
 import { 
   ChevronDownRegular
 } from '@fluentui/react-icons';
 import { useTypographyStyles } from '../styles/typography';
+
+interface ContactHeaderProps {
+  minimized?: boolean;
+  children?: React.ReactNode;
+}
 
 const useStyles = makeStyles({
   header: {
@@ -91,9 +97,31 @@ const useStyles = makeStyles({
   // ownerLabel removed - using typography.metadataLabel
 });
 
-export const ContactHeader: React.FC = () => {
+export const ContactHeader: React.FC<ContactHeaderProps> = ({ minimized = false, children }) => {
   const styles = useStyles();
   const typography = useTypographyStyles();
+
+  if (minimized) {
+    return (
+      <div className={styles.header} style={{ height: '40px', minHeight: '40px', justifyContent: 'flex-start', padding: '0 16px' }}>
+        <div className={styles.leftSection} style={{ gap: '12px', flex: 'none' }}>
+          <Avatar 
+            className={styles.avatar}
+            name="Patrick Sands" 
+            initials="PS"
+            size={28}
+            style={{ width: '28px', height: '28px', fontSize: '12px' }}
+          />
+          <h1 className={typography.pageTitle} style={{ fontSize: '14px', lineHeight: '20px', margin: 0 }}>
+            Patrick Sands (sample)
+          </h1>
+        </div>
+        <div style={{ flex: 1, display: 'flex', justifyContent: 'flex-end' }}>
+          {children}
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className={styles.header}>

@@ -63,10 +63,19 @@ const useStyles = makeStyles({
     },
   },
   navItemSelected: {
+    minWidth: '48px',
+    height: '40px',
+    justifyContent: 'flex-start',
+    ...shorthands.padding('0', '12px'),
+    ...shorthands.borderRadius('0'),
+    fontSize: '14px',
+    fontWeight: 600,
     backgroundColor: tokens.colorNeutralBackground1Selected,
     color: tokens.colorBrandForeground1,
     ...shorthands.borderLeft('3px', 'solid', tokens.colorBrandForeground1),
-    fontWeight: 600,
+    ':hover': {
+      backgroundColor: tokens.colorNeutralBackground1Hover,
+    },
   },
   sectionHeader: {
     minHeight: '32px',
@@ -191,7 +200,7 @@ export const SideNavigation: React.FC = () => {
 
       <Button 
         appearance="transparent" 
-        className={`${styles.navItem} ${styles.navItemSelected}`}
+        className={styles.navItemSelected}
         icon={<PersonRegular />}
       >
         {isExpanded && <span className={styles.labelText}>Contacts</span>}
