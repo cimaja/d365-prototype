@@ -23,7 +23,7 @@ const useStyles = makeStyles({
     ...shorthands.borderRadius('8px'),
     boxShadow: tokens.shadow4,
     ...shorthands.margin('20px', '20px', '0', '20px'),
-    ...shorthands.padding('16px'),
+    ...shorthands.padding('16px', '16px', '0', '16px'),
     display: 'flex',
     flexDirection: 'column',
     ...shorthands.gap('0'),
@@ -31,7 +31,7 @@ const useStyles = makeStyles({
   divider: {
     height: '1px',
     backgroundColor: 'rgb(225, 223, 221)',
-    ...shorthands.margin('24px', '0', '8px', '0'),
+    ...shorthands.margin('16px', '0', '0', '0'),
   },
   commandBarCard: {
     backgroundColor: 'rgb(255, 255, 255)',
@@ -118,6 +118,14 @@ export const MainContent: React.FC = () => {
   const [isFormAssistVisible, setIsFormAssistVisible] = useState(false);
   const [isMinimized, setIsMinimized] = useState(false);
   const mainRef = useRef<HTMLDivElement>(null);
+
+  // Scroll on initial load to hide the Activity Summary
+  useEffect(() => {
+    if (mainRef.current) {
+      // Scroll to position that hides the Activity Summary
+      mainRef.current.scrollTop = 120;
+    }
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {

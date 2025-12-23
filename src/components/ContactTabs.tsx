@@ -11,10 +11,11 @@ const useStyles = makeStyles({
     alignItems: 'center',
     justifyContent: 'space-between',
     backgroundColor: 'transparent',
-    height: '48px',
+    height: '40px',
+    paddingBottom: '0',
   },
   tabList: {
-    height: '48px',
+    height: '40px',
     '& button': {
       ':focus': {
         outline: 'none',
@@ -61,6 +62,7 @@ export const ContactTabs: React.FC<ContactTabsProps> = ({ onFormAssistToggle, is
             onClick={onFormAssistToggle}
             checked={isFormAssistVisible}
             className={styles.toggleButton}
+            size="small"
           >
             Form assist
           </ToggleButton>

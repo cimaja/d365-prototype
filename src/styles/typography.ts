@@ -17,10 +17,10 @@ export const useTypographyStyles = makeStyles({
   },
   // Page title style - used for h1 headings like "Patrick Sands (sample)"
   pageTitle: {
-    fontSize: '20px',
+    fontSize: '16px',
     fontWeight: 600,
     color: 'rgb(36, 36, 36)',
-    lineHeight: '28px',
+    lineHeight: '20px',
     margin: 0,
   },
   // Saved badge style - used for status indicators like "- Saved"

@@ -17,21 +17,22 @@ const useStyles = makeStyles({
     alignItems: 'center',
     justifyContent: 'space-between',
     backgroundColor: 'transparent',
-    height: '51px',
-    minHeight: '51px',
+    height: '44px',
+    minHeight: '44px',
+    paddingBottom: '0',
   },
   leftSection: {
     display: 'flex',
     alignItems: 'center',
-    ...shorthands.gap('12px'),
+    ...shorthands.gap('8px'),
     flex: 1,
   },
   avatar: {
-    width: '48px',
-    height: '48px',
+    width: '40px',
+    height: '40px',
     backgroundColor: 'rgb(232, 211, 162)',
     color: 'rgb(50, 49, 48)',
-    fontSize: '18px',
+    fontSize: '16px',
     fontWeight: 600,
     flexShrink: 0,
   },
@@ -138,7 +139,7 @@ export const ContactHeader: React.FC<ContactHeaderProps> = ({ minimized = false,
           className={styles.avatar}
           name="Patrick Sands" 
           initials="PS"
-          size={48}
+          size={40}
           color="colorful"
         />
 
