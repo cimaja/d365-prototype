@@ -132,7 +132,7 @@ export const MainContent: React.FC = () => {
       if (mainRef.current) {
         const scrollTop = mainRef.current.scrollTop;
         // Show minimized header when scrolled past the full header (around 200px)
-        setIsMinimized(scrollTop > 300);
+        setIsMinimized(scrollTop > 250);
       }
     };
 
