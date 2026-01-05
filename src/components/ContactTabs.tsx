@@ -39,14 +39,32 @@ interface ContactTabsProps {
   onFormAssistToggle: () => void;
   isFormAssistVisible: boolean;
   minimized?: boolean;
+  selectedTab?: string;
+  onTabSelect?: (tab: string) => void;
 }
 
-export const ContactTabs: React.FC<ContactTabsProps> = ({ onFormAssistToggle, isFormAssistVisible, minimized = false }) => {
+export const ContactTabs: React.FC<ContactTabsProps> = ({ 
+  onFormAssistToggle, 
+  isFormAssistVisible, 
+  minimized = false,
+  selectedTab = 'summary',
+  onTabSelect 
+}) => {
   const styles = useStyles();
+
+  const handleTabSelect = (event: any, data: any) => {
+    console.log('Tab selected:', data.value);
+    onTabSelect?.(data.value as string);
+  };
 
   return (
     <div className={styles.tabsContainer} style={minimized ? { height: '40px' } : {}}>
-      <TabList defaultSelectedValue="summary" className={styles.tabList} style={minimized ? { height: '40px' } : {}}>
+      <TabList 
+        selectedValue={selectedTab} 
+        onTabSelect={handleTabSelect}
+        className={styles.tabList} 
+        style={minimized ? { height: '40px' } : {}}
+      >
         <Tab value="summary">Summary</Tab>
         <Tab value="details">Details</Tab>
         <Tab value="related">

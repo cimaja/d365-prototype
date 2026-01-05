@@ -8,6 +8,7 @@ import { Timeline } from './Timeline.tsx';
 import { RelatedSection } from './RelatedSection.tsx';
 import { FormAssistPanel } from './FormAssistPanel.tsx';
 import { ActivitySummary } from './ActivitySummary.tsx';
+import { DetailsTab } from './DetailsTab.tsx';
 
 const useStyles = makeStyles({
   main: {
@@ -117,7 +118,23 @@ export const MainContent: React.FC = () => {
   const styles = useStyles();
   const [isFormAssistVisible, setIsFormAssistVisible] = useState(false);
   const [isMinimized, setIsMinimized] = useState(false);
+  const [selectedTab, setSelectedTab] = useState('summary');
   const mainRef = useRef<HTMLDivElement>(null);
+
+  const handleTabSelect = (tab: string) => {
+    console.log('MainContent: Setting tab to', tab);
+    setSelectedTab(tab);
+    
+    // Scroll to the same position as initial load (hides Activity Summary)
+    if (mainRef.current) {
+      mainRef.current.scrollTo({
+        top: 120,
+        behavior: 'smooth'
+      });
+    }
+  };
+
+  console.log('MainContent: Current tab is', selectedTab);
 
   // Scroll on initial load to hide the Activity Summary
   useEffect(() => {
@@ -153,6 +170,8 @@ export const MainContent: React.FC = () => {
                 onFormAssistToggle={() => setIsFormAssistVisible(!isFormAssistVisible)}
                 isFormAssistVisible={isFormAssistVisible}
                 minimized={true}
+                selectedTab={selectedTab}
+                onTabSelect={handleTabSelect}
               />
             </ContactHeader>
           ) : undefined}
@@ -165,6 +184,8 @@ export const MainContent: React.FC = () => {
         <ContactTabs 
           onFormAssistToggle={() => setIsFormAssistVisible(!isFormAssistVisible)} 
           isFormAssistVisible={isFormAssistVisible}
+          selectedTab={selectedTab}
+          onTabSelect={handleTabSelect}
         />
       </div>
       {isFormAssistVisible && (
@@ -173,17 +194,20 @@ export const MainContent: React.FC = () => {
         </div>
       )}
       <div className={styles.contentArea}>
-        <div className={styles.columnsContainer}>
-          <div className={styles.generalColumn}>
-            <GeneralInformation />
+        {selectedTab === 'summary' && (
+          <div className={styles.columnsContainer}>
+            <div className={styles.generalColumn}>
+              <GeneralInformation />
+            </div>
+            <div className={styles.timelineColumn}>
+              <Timeline />
+            </div>
+            <div className={styles.relatedColumn}>
+              <RelatedSection />
+            </div>
           </div>
-          <div className={styles.timelineColumn}>
-            <Timeline />
-          </div>
-          <div className={styles.relatedColumn}>
-            <RelatedSection />
-          </div>
-        </div>
+        )}
+        {selectedTab === 'details' && <DetailsTab />}
       </div>
     </main>
   );
