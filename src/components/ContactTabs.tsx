@@ -52,7 +52,7 @@ export const ContactTabs: React.FC<ContactTabsProps> = ({
 }) => {
   const styles = useStyles();
 
-  const handleTabSelect = (event: any, data: any) => {
+  const handleTabSelect = (_event: any, data: any) => {
     console.log('Tab selected:', data.value);
     onTabSelect?.(data.value as string);
   };

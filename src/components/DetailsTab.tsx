@@ -1,4 +1,4 @@
-import { makeStyles, shorthands, Input, Textarea, Button, Label } from '@fluentui/react-components';
+import { makeStyles, shorthands, Input, Textarea, Button } from '@fluentui/react-components';
 import { LockClosedRegular, AddRegular } from '@fluentui/react-icons';
 
 const useStyles = makeStyles({
