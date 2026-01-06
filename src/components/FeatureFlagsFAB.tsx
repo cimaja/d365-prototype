@@ -55,6 +55,10 @@ export const FeatureFlagsFAB: React.FC = () => {
     }));
   };
 
+  const checkedValues = Object.entries(featureFlags)
+    .filter(([, value]) => value)
+    .reduce((acc, [key]) => ({ ...acc, [key]: [key] }), {});
+
   return (
     <Menu>
       <MenuTrigger disableButtonEnhancement>
@@ -66,16 +70,15 @@ export const FeatureFlagsFAB: React.FC = () => {
       </MenuTrigger>
 
       <MenuPopover>
-        <MenuList>
+        <MenuList checkedValues={checkedValues}>
           {Object.keys(featureFlags).length === 0 ? (
             <MenuItem disabled>No feature flags available</MenuItem>
           ) : (
-            Object.entries(featureFlags).map(([key, value]) => (
+            Object.entries(featureFlags).map(([key]) => (
               <MenuItemCheckbox
                 key={key}
                 name={key}
                 value={key}
-                checked={value}
                 onClick={() => toggleFeatureFlag(key)}
               >
                 {key}
