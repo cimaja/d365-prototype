@@ -67,7 +67,7 @@ export const ContactTabs: React.FC<ContactTabsProps> = ({
       >
         <Tab value="summary">Summary</Tab>
         <Tab value="details">Details</Tab>
-        <Tab value="related">
+        <Tab value="related" disabled>
           Related
           <ChevronDownRegular style={{ fontSize: '12px', marginLeft: '4px' }} />
         </Tab>
