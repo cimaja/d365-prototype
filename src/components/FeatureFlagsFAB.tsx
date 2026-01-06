@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { makeStyles, shorthands, Button, Dialog, DialogTrigger, DialogSurface, DialogBody, DialogTitle, DialogContent, Switch, ToggleButton } from '@fluentui/react-components';
-import { BugRegular, DismissRegular } from '@fluentui/react-icons';
+import { BugRegular } from '@fluentui/react-icons';
 import { useFeatureFlags } from '../contexts/FeatureFlagsContext';
 
 const useStyles = makeStyles({
@@ -87,10 +87,6 @@ const featureFlagDescriptions: Record<string, string> = {
   autoscrollPosition: 'Sets the scroll position when switching tabs. Choose between 120px (hides Activity Summary) or 251px (triggers minimized header).',
 };
 
-interface FeatureFlagsState {
-  [key: string]: boolean;
-}
-
 export const FeatureFlagsFAB: React.FC = () => {
   const styles = useStyles();
   const { featureFlags, toggleFeatureFlag, setAutoscrollPosition } = useFeatureFlags();
@@ -98,7 +94,7 @@ export const FeatureFlagsFAB: React.FC = () => {
 
   return (
     <>
-      <Dialog open={open} onOpenChange={(event, data) => setOpen(data.open)}>
+      <Dialog open={open} onOpenChange={(_event, data) => setOpen(data.open)}>
         <DialogTrigger disableButtonEnhancement>
           <Button 
             className={styles.fab}
