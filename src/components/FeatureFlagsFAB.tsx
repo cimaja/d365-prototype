@@ -6,22 +6,30 @@ const useStyles = makeStyles({
   fab: {
     position: 'fixed',
     bottom: '24px',
-    left: '24px',
-    width: '56px',
-    height: '56px',
-    ...shorthands.borderRadius('28px'),
+    left: '12px',
+    width: '48px',
+    height: '48px',
+    ...shorthands.borderRadius('50%'),
     boxShadow: '0 4px 8px rgba(0, 0, 0, 0.14), 0 0 2px rgba(0, 0, 0, 0.12)',
     zIndex: 1000,
     ...shorthands.padding('0'),
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
+    backgroundColor: 'rgb(188, 47, 50)',
+    color: 'white',
+    ...shorthands.border('none'),
     '&:hover': {
+      backgroundColor: 'rgb(160, 40, 43)',
       boxShadow: '0 6px 12px rgba(0, 0, 0, 0.18), 0 0 2px rgba(0, 0, 0, 0.12)',
+    },
+    '&:active': {
+      backgroundColor: 'rgb(140, 35, 38)',
     },
   },
   icon: {
-    fontSize: '24px',
+    fontSize: '20px',
+    color: 'white',
   },
 });
 
@@ -46,7 +54,6 @@ export const FeatureFlagsFAB: React.FC = () => {
     <Menu>
       <MenuTrigger disableButtonEnhancement>
         <Button 
-          appearance="primary" 
           className={styles.fab}
           icon={<BugRegular className={styles.icon} />}
           aria-label="Feature Flags"
