@@ -339,6 +339,152 @@ export const GeneralInformation: React.FC = () => {
             />
           </div>
         </div>
+
+        <div className={styles.fieldRow}>
+          <div className={styles.labelContainer}>
+            <label className={styles.label}>Business Phone</label>
+          </div>
+          <div className={styles.inputContainer}>
+            <Input 
+              className={styles.input}
+              defaultValue="+1 (206) 555-0100"
+              placeholder="---"
+              appearance="filled-lighter"
+            />
+          </div>
+        </div>
+
+        <div className={styles.fieldRow}>
+          <div className={styles.labelContainer}>
+            <label className={styles.label}>Home Phone</label>
+          </div>
+          <div className={styles.inputContainer}>
+            <Input 
+              className={styles.input}
+              placeholder="---"
+              appearance="filled-lighter"
+            />
+          </div>
+        </div>
+
+        <div className={styles.fieldRow}>
+          <div className={styles.labelContainer}>
+            <label className={styles.label}>Job Title</label>
+          </div>
+          <div className={styles.inputContainer}>
+            <Input 
+              className={styles.input}
+              defaultValue="Marketing Manager"
+              placeholder="---"
+              appearance="filled-lighter"
+            />
+          </div>
+        </div>
+
+        <div className={styles.fieldRow}>
+          <div className={styles.labelContainer}>
+            <label className={styles.label}>Department</label>
+          </div>
+          <div className={styles.inputContainer}>
+            <Input 
+              className={styles.input}
+              defaultValue="Marketing"
+              placeholder="---"
+              appearance="filled-lighter"
+            />
+          </div>
+        </div>
+
+        <div className={styles.fieldRow}>
+          <div className={styles.labelContainer}>
+            <label className={styles.label}>Manager</label>
+          </div>
+          <div className={styles.inputContainer}>
+            <Input 
+              className={styles.input}
+              placeholder="---"
+              appearance="filled-lighter"
+            />
+          </div>
+        </div>
+
+        <div className={styles.fieldRow}>
+          <div className={styles.labelContainer}>
+            <label className={styles.label}>Assistant Name</label>
+          </div>
+          <div className={styles.inputContainer}>
+            <Input 
+              className={styles.input}
+              placeholder="---"
+              appearance="filled-lighter"
+            />
+          </div>
+        </div>
+
+        <div className={styles.fieldRow}>
+          <div className={styles.labelContainer}>
+            <label className={styles.label}>Assistant Phone</label>
+          </div>
+          <div className={styles.inputContainer}>
+            <Input 
+              className={styles.input}
+              placeholder="---"
+              appearance="filled-lighter"
+            />
+          </div>
+        </div>
+
+        <div className={styles.fieldRow}>
+          <div className={styles.labelContainer}>
+            <label className={styles.label}>Birthday</label>
+          </div>
+          <div className={styles.inputContainer}>
+            <Input 
+              className={styles.input}
+              placeholder="---"
+              appearance="filled-lighter"
+            />
+          </div>
+        </div>
+
+        <div className={styles.fieldRow}>
+          <div className={styles.labelContainer}>
+            <label className={styles.label}>Anniversary</label>
+          </div>
+          <div className={styles.inputContainer}>
+            <Input 
+              className={styles.input}
+              placeholder="---"
+              appearance="filled-lighter"
+            />
+          </div>
+        </div>
+
+        <div className={styles.fieldRow}>
+          <div className={styles.labelContainer}>
+            <label className={styles.label}>Spouse/Partner Name</label>
+          </div>
+          <div className={styles.inputContainer}>
+            <Input 
+              className={styles.input}
+              placeholder="---"
+              appearance="filled-lighter"
+            />
+          </div>
+        </div>
+
+        <div className={styles.fieldRow}>
+          <div className={styles.labelContainer}>
+            <label className={styles.label}>Number of Children</label>
+          </div>
+          <div className={styles.inputContainer}>
+            <Input 
+              className={styles.input}
+              placeholder="---"
+              appearance="filled-lighter"
+            />
+          </div>
+        </div>
       </div>
     </div>
   );

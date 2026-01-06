@@ -266,6 +266,128 @@ export const DetailsTab: React.FC = () => {
             </div>
           </div>
         </div>
+
+        <div className={styles.section}>
+          <h2 className={styles.sectionHeader}>ADDITIONAL INFORMATION</h2>
+          
+          <div className={styles.formContainer}>
+            <div className={styles.fieldRow}>
+              <div className={styles.labelContainer}>
+                <label className={styles.label}>
+                  Product Category
+                  <LockClosedRegular className={styles.lockIcon} />
+                </label>
+              </div>
+              <div className={styles.inputContainer}>
+                <Input 
+                  className={styles.input}
+                  placeholder="---"
+                  appearance="filled-lighter"
+                />
+              </div>
+            </div>
+
+            <div className={styles.fieldRow}>
+              <div className={styles.labelContainer}>
+                <label className={styles.label}>
+                  Release Version
+                  <LockClosedRegular className={styles.lockIcon} />
+                </label>
+              </div>
+              <div className={styles.inputContainer}>
+                <Input 
+                  className={styles.input}
+                  defaultValue="2024.1"
+                  placeholder="---"
+                  appearance="filled-lighter"
+                />
+              </div>
+            </div>
+
+            <div className={styles.fieldRow}>
+              <div className={styles.labelContainer}>
+                <label className={styles.label}>
+                  Target Release Date
+                  <LockClosedRegular className={styles.lockIcon} />
+                </label>
+              </div>
+              <div className={styles.inputContainer}>
+                <Input 
+                  className={styles.input}
+                  placeholder="---"
+                  appearance="filled-lighter"
+                />
+              </div>
+            </div>
+
+            <div className={styles.fieldRow}>
+              <div className={styles.labelContainer}>
+                <label className={styles.label}>
+                  Priority
+                  <LockClosedRegular className={styles.lockIcon} />
+                </label>
+              </div>
+              <div className={styles.inputContainer}>
+                <Input 
+                  className={styles.input}
+                  defaultValue="High"
+                  placeholder="---"
+                  appearance="filled-lighter"
+                />
+              </div>
+            </div>
+
+            <div className={styles.fieldRow}>
+              <div className={styles.labelContainer}>
+                <label className={styles.label}>
+                  Development Status
+                  <LockClosedRegular className={styles.lockIcon} />
+                </label>
+              </div>
+              <div className={styles.inputContainer}>
+                <Input 
+                  className={styles.input}
+                  defaultValue="In Progress"
+                  placeholder="---"
+                  appearance="filled-lighter"
+                />
+              </div>
+            </div>
+
+            <div className={styles.fieldRow}>
+              <div className={styles.labelContainer}>
+                <label className={styles.label}>
+                  Stakeholder
+                  <LockClosedRegular className={styles.lockIcon} />
+                </label>
+              </div>
+              <div className={styles.inputContainer}>
+                <Input 
+                  className={styles.input}
+                  placeholder="---"
+                  appearance="filled-lighter"
+                />
+              </div>
+            </div>
+
+            <div className={styles.fieldRow}>
+              <div className={styles.labelContainer}>
+                <label className={styles.label}>
+                  Technical Notes
+                  <LockClosedRegular className={styles.lockIcon} />
+                </label>
+              </div>
+              <div className={styles.inputContainer}>
+                <Textarea
+                  className={styles.textarea}
+                  placeholder="Enter technical notes..."
+                  rows={4}
+                  appearance="filled-lighter"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
       <div className={styles.rightColumn}>
