@@ -2,6 +2,7 @@ import { makeStyles, tokens } from '@fluentui/react-components';
 import { TopNavigation } from './TopNavigation';
 import { SideNavigation } from './SideNavigation';
 import { MainContent } from './MainContent';
+import { FeatureFlagsFAB } from './FeatureFlagsFAB';
 
 const useStyles = makeStyles({
   root: {
@@ -35,6 +36,7 @@ export const D365Layout: React.FC = () => {
           <MainContent />
         </div>
       </div>
+      <FeatureFlagsFAB />
     </div>
   );
 };
