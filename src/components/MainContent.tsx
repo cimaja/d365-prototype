@@ -127,12 +127,16 @@ export const MainContent: React.FC = () => {
     console.log('MainContent: Setting tab to', tab);
     setSelectedTab(tab);
     
-    // Scroll to the same position as initial load (hides Activity Summary)
+    // Only scroll if already scrolled past the target position
     if (mainRef.current) {
-      mainRef.current.scrollTo({
-        top: 120,
-        behavior: 'smooth'
-      });
+      const targetPosition = featureFlags.autoscrollPosition;
+      const currentScroll = mainRef.current.scrollTop;
+      if (currentScroll >= targetPosition) {
+        mainRef.current.scrollTo({
+          top: targetPosition,
+          behavior: 'smooth'
+        });
+      }
     }
   };
 
