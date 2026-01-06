@@ -9,6 +9,10 @@ const useStyles = makeStyles({
     left: '12px',
     width: '48px',
     height: '48px',
+    minWidth: '48px',
+    minHeight: '48px',
+    maxWidth: '48px',
+    maxHeight: '48px',
     ...shorthands.borderRadius('50%'),
     boxShadow: '0 4px 8px rgba(0, 0, 0, 0.14), 0 0 2px rgba(0, 0, 0, 0.12)',
     zIndex: 1000,
@@ -19,6 +23,7 @@ const useStyles = makeStyles({
     backgroundColor: 'rgb(188, 47, 50)',
     color: 'white',
     ...shorthands.border('none'),
+    overflow: 'hidden',
     '&:hover': {
       backgroundColor: 'rgb(160, 40, 43)',
       boxShadow: '0 6px 12px rgba(0, 0, 0, 0.18), 0 0 2px rgba(0, 0, 0, 0.12)',
