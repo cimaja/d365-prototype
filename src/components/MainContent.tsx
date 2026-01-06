@@ -9,6 +9,7 @@ import { RelatedSection } from './RelatedSection.tsx';
 import { FormAssistPanel } from './FormAssistPanel.tsx';
 import { ActivitySummary } from './ActivitySummary.tsx';
 import { DetailsTab } from './DetailsTab.tsx';
+import { useFeatureFlags } from '../contexts/FeatureFlagsContext';
 
 const useStyles = makeStyles({
   main: {
@@ -116,6 +117,7 @@ const useStyles = makeStyles({
 
 export const MainContent: React.FC = () => {
   const styles = useStyles();
+  const { featureFlags } = useFeatureFlags();
   const [isFormAssistVisible, setIsFormAssistVisible] = useState(false);
   const [isMinimized, setIsMinimized] = useState(false);
   const [selectedTab, setSelectedTab] = useState('summary');
@@ -146,7 +148,7 @@ export const MainContent: React.FC = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (mainRef.current) {
+      if (mainRef.current && featureFlags.minimizeHeader) {
         const scrollTop = mainRef.current.scrollTop;
         // Show minimized header when scrolled past the full header (around 200px)
         setIsMinimized(scrollTop > 250);
@@ -158,13 +160,13 @@ export const MainContent: React.FC = () => {
       mainElement.addEventListener('scroll', handleScroll);
       return () => mainElement.removeEventListener('scroll', handleScroll);
     }
-  }, []);
+  }, [featureFlags.minimizeHeader]);
 
   return (
     <main className={styles.main} ref={mainRef}>
-      <div className={`${styles.commandBarCard} ${isMinimized ? styles.commandBarCardElevated : ''}`}>
+      <div className={`${styles.commandBarCard} ${isMinimized && featureFlags.minimizeHeader ? styles.commandBarCardElevated : ''}`}>
         <CommandBar 
-          minimizedHeader={isMinimized ? (
+          minimizedHeader={isMinimized && featureFlags.minimizeHeader ? (
             <ContactHeader minimized={true}>
               <ContactTabs 
                 onFormAssistToggle={() => setIsFormAssistVisible(!isFormAssistVisible)}

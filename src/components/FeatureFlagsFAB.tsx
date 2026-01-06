@@ -1,6 +1,6 @@
-import { useState } from 'react';
 import { makeStyles, shorthands, Button, Menu, MenuTrigger, MenuPopover, MenuList, MenuItem, MenuItemCheckbox } from '@fluentui/react-components';
 import { BugRegular } from '@fluentui/react-icons';
+import { useFeatureFlags } from '../contexts/FeatureFlagsContext';
 
 const useStyles = makeStyles({
   fab: {
@@ -38,22 +38,17 @@ const useStyles = makeStyles({
   },
 });
 
+const featureFlagLabels: Record<string, string> = {
+  minimizeHeader: 'Minimize Header',
+};
+
 interface FeatureFlagsState {
   [key: string]: boolean;
 }
 
 export const FeatureFlagsFAB: React.FC = () => {
   const styles = useStyles();
-  const [featureFlags, setFeatureFlags] = useState<FeatureFlagsState>({
-    // Feature flags will be added here
-  });
-
-  const toggleFeatureFlag = (flagName: string) => {
-    setFeatureFlags(prev => ({
-      ...prev,
-      [flagName]: !prev[flagName]
-    }));
-  };
+  const { featureFlags, toggleFeatureFlag } = useFeatureFlags();
 
   const checkedValues = Object.entries(featureFlags)
     .filter(([, value]) => value)
@@ -71,20 +66,16 @@ export const FeatureFlagsFAB: React.FC = () => {
 
       <MenuPopover>
         <MenuList checkedValues={checkedValues}>
-          {Object.keys(featureFlags).length === 0 ? (
-            <MenuItem disabled>No feature flags available</MenuItem>
-          ) : (
-            Object.entries(featureFlags).map(([key]) => (
-              <MenuItemCheckbox
-                key={key}
-                name={key}
-                value={key}
-                onClick={() => toggleFeatureFlag(key)}
-              >
-                {key}
-              </MenuItemCheckbox>
-            ))
-          )}
+          {Object.keys(featureFlags).map((key) => (
+            <MenuItemCheckbox
+              key={key}
+              name={key}
+              value={key}
+              onClick={() => toggleFeatureFlag(key as any)}
+            >
+              {featureFlagLabels[key] || key}
+            </MenuItemCheckbox>
+          ))}
         </MenuList>
       </MenuPopover>
     </Menu>
